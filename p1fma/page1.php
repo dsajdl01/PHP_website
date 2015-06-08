@@ -1,23 +1,19 @@
 <?php
-		/*/*
-			php. file for index.php 
+		/**
+			php. file for page.php 
 			created by David Sajdl
-			for PHP TMA
+			for PHP FMA
 			userName: dsajdl01
 		*/
 		$myTitle = 'FMA page 3';
 		include 'includes/header.php';
 		require_once 'require/functions.php';
-?>
-		<ul>
-			<li><a href="index.php<?php echo htmlspecialchars(SID); ?>">Page 1</a></li>
-			<li><a href="page.php<?php echo htmlspecialchars(SID); ?>">Page 2</a></li>
-			<li>Page 3</li>
-		</ul>
-        <p>This page 3</p>
-		<?php
-			require_once 'require/content.php'; 
-			echo $TEST;
+		
+			include 'logOut.php';
+			include'topMenu.php';
+			echo make_heading('FMA page 3',1);
+			include 'content.php'; 
+			$UrlLink ='http%3A%2F%2Ftitan.dcs.bbk.ac.uk%2F~dsajdl01%2Fp1fma%2Fpage1.php%3F';
 			include 'includes/footer.php';
 		?>
     </body>

@@ -1,26 +1,22 @@
 <?php
-		/*/*
+	/**
 			php. file for index.php 
 			created by David Sajdl
-			for PHP TMA
+			for PHP FMA
 			userName: dsajdl01
 		*/
 		$myTitle = 'FMA index_page 1';
 		include 'includes/header.php';
 		require_once 'require/functions.php';
-?>
-    <body>
-		<?php
-			require_once 'require/logIn.php';
+
+			include 'logOut.php';
+			include 'topMenu.php';
+			echo make_heading('FMA index page 1',1);
 		?>
-		<ul>
-			<li>Page 1</li>
-			<li><a href="page.php<?php echo htmlspecialchars(SID); ?>">Page 2</a></li>
-			<li><a href="page1.php<?php echo htmlspecialchars(SID); ?>">Page 3</a></li>
-		</ul>
-        <p>This is index page 1</p>
+		<p>This is homepage or index of the PHP for fma. It has been created by David Sajdl during Christmas time in 2013. This is homepage or index of the PHP for fma. It has been created by David Sajdl during Christmas time in 2013. This is homepage or index of the PHP for fma. It has been created by David Sajdl during Christmas time in 2013.  This is homepage or index of the PHP for fma. It has been created by David Sajdl during Christmas time in 2013. This is homepage or index of the PHP for fma. It has been created by David Sajdl during Christmas time in 2013.</p>
+        
 		<?php
-			echo $TEST;
+			$UrlLink ='http%3A%2F%2Ftitan.dcs.bbk.ac.uk%2F~dsajdl01%2Fp1fma%2Findex.php%3F';
 			include 'includes/footer.php';
 		?>
     </body>
