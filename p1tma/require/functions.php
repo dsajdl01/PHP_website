@@ -5,6 +5,27 @@
 	for PHP TMA
 	userName: dsajdl01
 */
+	/*
+		Function that create table with content
+		Parameters:
+		$theFile string to the particular file
+		Returns: string that contains table with 2 columns and 5 rows.
+	*/
+	function make_table($theFile){
+		$content = '<table border="1"><tr><td>';
+		$content .= 'Total number of file requested </td><td >'. count_lines_in_file($theFile).'</td></tr>';
+		$content .= '<tr><td>Number of the file requested by the articles </td><td >'; 
+		$content .= count_articles_file($theFile).'</td></tr>';
+		$content .= '<tr><td>Total bandwidth consumed by the file requests </td><td >'. get_bandwidth_in_bytes($theFile).'</td></tr>';
+		$content .= '<tr><td>Total number of 404 errors requested </td><td >'. count_404_errors($theFile).'</td></tr>';
+		$content .= '<tr><td> The list of the filenames that produced 404 errors</td><td>';
+		$theList = get_404error_list($theFile);
+			foreach($theList as $list){
+				$content .= '<p>'.$list.'</p>';
+			}
+		$content .= '</td></tr></table>';
+		return $content;
+	}
 	
 	/*
 		Function that give a text into the header html tags.
