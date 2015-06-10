@@ -1,0 +1,22 @@
+
+ <div class="loadingContainer">
+	<p class="loadingDescription">[+loadingText+]</p>
+		 <form enctype="multipart/form-data" action="[+server+]" method="post">
+			<fieldset id="LoadingFile">
+				<legend>[+imageLoading+]</legend>
+					<div class="loading">
+						<!-- "name" of input (userfile) will be the "key" in $_FILES --> 
+						<p><label>[+uploadFileTitle+]</label><input id="loadFile" name="userfile" type="file" /> <span class="errorMessage"> [+browserErrorMessage+] </span></p>
+						<p> <label>[+uploadTitle+]</label>  <input type="text" name="titleOfImage" maxlength="20" value="[+titleImage+]" /> <span class="errorMessage"> [+titleErrorMessage+] </span></p>
+					
+			   <p><label>[+uploadSummaryTitle+]</label> <input type="text" name="summaryOfImage" maxlength="150" value="[+summaryImage+]" /><span class="errorMessage"> [+summaryErrorMessage+] </span></p>
+				</div>
+
+					<div class="submitting">
+						<input id="submit" type="submit" value="[+uploadFile+]" name="upload" />
+					</div>
+			</fieldset>
+			<p class="successMessage">[+uploadingSuccess+]</p>
+		</form>
+</div>
+
