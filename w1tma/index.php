@@ -165,7 +165,6 @@
 	$stepSum2 = str_replace('[+summery_for_artist+]',htmlentities($artistSummeryContent), $stepSum1);
 	$songSummeryContent = $lang['first_song_content'] . ' ' . $numberOfSongs . ' ' . $lang['last_song_content'];
 	$summeryFinal = str_replace('[+summery_for_songs+]',htmlentities($songSummeryContent), $stepSum2);
-	$UrlLink = '';
 	/*
 	* Checking which page link is clicked. When is clicked it gets clicked page view into variable $id 
 	* if none is click then it gets home page view.
@@ -183,15 +182,12 @@
 	switch ($id){
 		case 'home' :
 			include 'views/home.php';
-			$UrlLink = 'http%3A%2F%2Ftitan.dcs.bbk.ac.uk%2F~dsajdl01/w1tma%2Findex.php%3F';
 			break;
 		case 'artists' :
 			include 'views/artists.php';
-			$UrlLink = 'http%3A%2F%2Ftitan.dcs.bbk.ac.uk%2F~dsajdl01/w1tma%2Findex.php%3Fpage=artists';
 			break;
 		case 'songs' :
 			include 'views/songs.php';
-			$UrlLink = 'http%3A%2F%2Ftitan.dcs.bbk.ac.uk%2F~dsajdl01/w1tma%2Findex.php%3Fpage=songs';
 			break;
 		default:
 			include 'views/404.php';
@@ -204,15 +200,14 @@
 	*/
 	$fileFooter = 'includes/footer.html';
 	$tplFooter = file_get_contents($fileFooter);
+	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	$webAuthor = make_name('David','Sajdl'); // The designer name should remain in each language the same, therefore name was not added into en.php file .  
 	$passF1 = str_replace('[+footerText+]', htmlentities($lang['ftrText']), $tplFooter);
-	$passF2 = str_replace('[+urlLink+]', $UrlLink, $passF1);
+	$passF2 = str_replace('[+urlLink+]', $actual_link, $passF1);
 	$passF3 = str_replace('[+title_validation+]', htmlentities($lang['validation_title_of_html']), $passF2);
 	$FooterFinal = str_replace('[+webAuthor+]',htmlentities($webAuthor), $passF3);	
 	$content .= $FooterFinal;
-	
+
 	// Display content values.
 	echo $content;
-	
-	
 ?>
