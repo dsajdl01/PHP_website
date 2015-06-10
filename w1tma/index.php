@@ -30,16 +30,21 @@
 			$config['db_user'], 
 			$config['db_pass'], 
 			$config['db_name']);
+
+	/*
+	* load errorTemplate.html file that is paragraph of any  page
+	* and store errorTemplate.html file into variable called $tplError.
+	*/
+	$fileEr = 'templates/errorTemplate.html';
+	$tplError = file_get_contents($fileEr);
 	
 	/* 
 	* If the connection with database fails, it "exit" here 
 	* which stops all further processing by PHP.
 	*/
 	if (mysqli_connect_errno()) {
-		$fileEr = 'templates/errorTemplate.html';
-		$tplError = file_get_contents($fileEr);
-		$erFinal = str_replace('[+error_message+]',htmlentities(mysqli_connect_error()), $tplError);
-		exit($erFinal);
+		$errorPage = getErorrPage(mysqli_error($link), $tplError, $FooterFinal, $long['error_title']);
+		exit($errorPage);
 	}
 	/*
 	* load head.html file into variable call $header 
@@ -65,12 +70,22 @@
 	$tplH = file_get_contents($fileHeading);
 	$tplHeading = str_replace('[+sub_text+]', htmlentities($long['lorem_ipsum_text']), $tplH);
 	
+	
+
 	/*
-	* load errorTemplate.html file that is paragraph of any  page
-	* and store errorTemplate.html file into variable called $tplError.
+	* Load footer.html file and replace 
+	* place holds with values and assign footer into variable $content.
 	*/
-	$fileEr = 'templates/errorTemplate.html';
-	$tplError = file_get_contents($fileEr);
+	$fileFooter = 'includes/footer.html';
+	$tplFooter = file_get_contents($fileFooter);
+	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	$webAuthor = make_name('David','Sajdl'); // The designer name should remain in each language the same, therefore name was not added into en.php file .  
+	$passF1 = str_replace('[+footerText+]', htmlentities($lang['ftrText']), $tplFooter);
+	$passF2 = str_replace('[+urlLink+]', $actual_link, $passF1);
+	$passF3 = str_replace('[+title_validation+]', htmlentities($lang['validation_title_of_html']), $passF2);
+	$FooterFinal = str_replace('[+webAuthor+]',htmlentities($webAuthor), $passF3);
+
+
 	/*
 	* making sql query to find out how many artist 
 	* are in database table that are active (artists with at least one song).
@@ -92,8 +107,8 @@
 	* here it is tested if does not fail. If yes it will exit.
 	*/
 	if ($res === false) {
-		$erFinal = str_replace('[+error_message+]',htmlentities(mysqli_error($link)), $tplError);
-		exit($erFinal);
+		$errorPage = getErorrPage(mysqli_error($link), $tplError, $FooterFinal, $long['error_title']);
+		exit($errorPage);
 	}
 	/*
 	* Declaring variable $numberOfActiveArtist. 
@@ -118,7 +133,7 @@
 	* Making sql query to find out how many songs 
 	* are in database table call song.
  	*/
-	$sqlQuery2 =  'SELECT COUNT(title) as num_of_song 
+	$sqlQuery2 =  'SELECT COUNT(title) as num_of_song
 					FROM dsajdl01db.song;';
 					
 	/*
@@ -131,8 +146,8 @@
 	* here it is tested if does not fail. If yes it will exit.
 	*/
 	if ($res2 === false) {
-		$erFinal = str_replace('[+error_message+]',htmlentities(mysqli_error($link)), $tplError);
-		exit($erFinal);
+		$errorPage = getErorrPage(mysqli_error($link), $tplError, $FooterFinal, $long['error_title']);
+		exit($errorPage);
 	}
 	/*
 	* Declaring variable $numberOfSongs.
@@ -194,18 +209,7 @@
 	}
 	
 
-	/*
-	* Load footer.html file and replace 
-	* place holds with values and assign footer into variable $content.
-	*/
-	$fileFooter = 'includes/footer.html';
-	$tplFooter = file_get_contents($fileFooter);
-	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-	$webAuthor = make_name('David','Sajdl'); // The designer name should remain in each language the same, therefore name was not added into en.php file .  
-	$passF1 = str_replace('[+footerText+]', htmlentities($lang['ftrText']), $tplFooter);
-	$passF2 = str_replace('[+urlLink+]', $actual_link, $passF1);
-	$passF3 = str_replace('[+title_validation+]', htmlentities($lang['validation_title_of_html']), $passF2);
-	$FooterFinal = str_replace('[+webAuthor+]',htmlentities($webAuthor), $passF3);	
+		
 	$content .= $FooterFinal;
 
 	// Display content values.

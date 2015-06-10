@@ -36,4 +36,29 @@
 		$t = round($duration);
 		return sprintf('%02d:%02d', ($t/60%60), $t%60);
 	}
+	/*
+	* getErorrPage() function enable to replace place holder with values and 
+	* return html page that contain header footer and one text paragraph which represent error message as a body.
+	*
+	* @param string $error that represent error message which is content of the page text.
+	* @param string $head that represent header template include body of the page.
+	* @param string $footer that represent footer template of the page.
+	* @param string $title that represent title of the web page.
+	* @return string that represent completed html web page. 
+	*/
+	function getErorrPage($error, $head, $footer, $title){
+		// get header and replace place holders with title and error values
+		$head = str_replace('[+title+]',htmlentities($title), $head);
+		$head = str_replace('[+error_message+]', $error, $head);
+		$content = $head;
+		// get error message template and replace place holders with error value
+		//$fileEr = 'templates/errorTemplate.html';
+		//$tplError = file_get_contents($fileEr);
+		//$erFinal = str_replace('[+error_message+]',htmlentities($error), $tplError);
+		//$content .= $erFinal;
+		// get footer template
+		$content .= $footer;
+		return $content;
+	}
+
 ?>

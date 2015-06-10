@@ -16,6 +16,7 @@
 	$lang['title_home'] = 'BBK TMA - Building Web Applications using MySQL and PHP W1Music home page';
 	$lang['title_artists'] = 'BBK TMA - Building Web Applications using MySQL and PHP W1Music artists page';
 	$lang['title_songs'] = 'BBK TMA - Building Web Applications using MySQL and PHP W1Music songs page';
+	$long['error_title'] = 'BBK TMA - Building Web Applications using MySQL and PHP Error Page';
 	
 	/**
 	* describe main header text of the all pages.
