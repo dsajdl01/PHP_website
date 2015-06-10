@@ -1,0 +1,176 @@
+/*
+* w1music.css file for W1 Music, 
+* TMA assignment using MySQL and PHP
+*	
+*	created by David Sajdl
+*	userName: dsajdl01
+* 	date 14/02/2015
+*/
+
+/* ------------------------------*/
+/* --- Body of the all pages --- */
+/* ------------------------------*/
+body{
+	background-color: #ffffff;
+	color: #000000;
+}
+
+/* ------------------------------------------------------------*/
+/* --- main-container of the all pages (centre box - layout ---*/
+/* ------------------------------------------------------------*/
+.mainContainer{
+	width: 70%;
+	background-color: #ffffff;
+	box-shadow: 10px 10px 10px 10px #c2c2c2;
+	border-radius: 35px;
+	margin: 2em auto;
+	padding: 0% 2% 0% 2%;
+}
+
+/* ------------------------------------*/
+/* --- Head title of the all pages --- */
+/* ------------------------------------*/
+h1{
+	text-align: center;
+	padding-top: 2%;
+	font-size: 300%;
+	color: #000000;
+}
+
+/* -----------------------------------*/
+/* --- Top navigation bar  (views) ---*/
+/* -----------------------------------*/
+#topnavbar li a{
+	color: #000000;
+	text-decoration: none;
+	padding: 0.5% 1% 0.5% 1%;
+	border-radius: 5px;
+	box-shadow: 0.5px 0.5px 0.5px 0.5px #c2c2c2;
+	background-color: #ffffff;
+}
+#topnavbar li {
+	margin: 0% 2% 0% 0%;
+	display: inline;
+
+}
+#topnavbar {
+	text-align: center;
+}
+#topnavbar li a:hover{
+	box-shadow: 1px 1px 1px 1px #ffffff;
+	color: #7f7f7f;
+	text-decoration: underline;
+}
+body#songsPage a#songs,
+body#artistPage a#artist,
+body#homePage a#home{
+	background-color: #ffffff;
+	color: #7f7f7f;
+	box-shadow: 1px 1px 1px 1px #ffffff;
+
+}
+
+/* ------------------------------------*/
+/* --- Sub-heading of the all pages ---*/
+/* ------------------------------------*/
+h2{
+	font-size:150%;	
+	margin: -8px 0px 0px 0px;
+	padding: 20px 0px 0px 0px;
+}
+
+/* ---------------------------------------*/
+/* --- summery brief of the all pages  ---*/
+/* ---------------------------------------*/
+h4{
+	font-size:100%;
+	margin: 0% 83% 0% 0%;
+}
+
+.summery{
+	line-height:1.5;
+	padding: 1% 0% 6% 0%;
+}
+.summeryContent{
+	margin-top: -22px;
+	margin-left: 200px;
+}
+.SumSong,
+.sumArtist{
+	line-height:1.5;
+}
+
+
+/* -----------------------------------------*/
+/* ---  artist page (div) class table    ---*/
+/* -----------------------------------------*/
+.rowArtisName{
+	margin: 0% 9% 0.1% 5%;
+	border-bottom: solid 1px #c2c2c2;
+}
+.artistNumSongs{
+	float: right;
+	padding: 0% 48.5% 0% 0%;
+}
+
+.artName{
+	border-bottom: solid 1px;
+	font-weight: bold;
+	margin: 2% 9% 1% 5%;
+}
+.artisSong{
+	float: right;
+	padding: 0% 35% 0% 0%;
+}
+
+/* ----------------------------------------*/
+/* -----       song page table        -----*/
+/* ----------------------------------------*/
+.songsTable{
+margin: 0% 0% 0% 2%;
+}
+
+tr.titleHeadr{
+	border-bottom: solid 1px;
+	font-weight: bold;
+}
+td.songDuractionHead {
+	width: 4.2%;
+	border-bottom: solid 1px;
+	padding-bottom: 0px;
+}
+td.SongArtistHead{
+	padding-bottom: 0px;
+	width: 10%;
+	border-bottom: solid 1px;
+}
+td.songHead{
+	width: 10%;
+	padding-bottom: 0px;
+	border-bottom: solid 1px;
+}
+tr.oneRow,
+td.songTitle,
+td.SongArtist, 
+td.songDuraction{
+	border-bottom: solid 1px #c2c2c2;
+}
+
+/* ----------------------*/
+/* --- Footer layout ----*/
+/* ----------------------*/
+.footer{
+	border-top: solid 1px #c2c2c2;
+	margin-top: 80px;
+	padding-top: 10px; 
+	font-size: 12px;
+	padding-bottom: 10px;
+}
+
+/* ----------------------------------------------*/
+/* --- Designer name - footer of the all page ---*/
+/* ----------------------------------------------*/
+.webAuthor{
+	float:right;
+	margin-top: 0px;
+}
