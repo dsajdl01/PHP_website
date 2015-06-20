@@ -16,12 +16,12 @@
 	 * PLEASE DO NOT CHANGE VALUES OF THE ARRYS $config
 	 * AS THE APPLICATION MAY NOT WORK ! 
 	 * /
-	 
-	 /*
+ 	
+ 	/*
 	 * (if you decide to connect gallery.php system to your database
 	 * then change database or $config arrays values with your database values.) 
 	 */
-	$config['db_host'] = 'xxxxxxxx-xxx-xx';
+ 	$config['db_host'] = 'xxxxxxxx-xxx-xx';
 	$config['db_name'] = '***-***';
 	$config['db_user'] = 'dsajdl01';
 	$config['db_pass'] = 'mysql';
