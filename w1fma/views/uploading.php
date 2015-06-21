@@ -60,7 +60,7 @@
 					$clean['summaryOfImage'] = trim($_POST['summaryOfImage']);
 				} 
 				else {
-					$errorTitleMessage = "Title can contain only letters and numbers. Not any html elements";
+					$errorSummaryMessage = "Title can contain only letters and numbers. Not any html elements";
 					$errorDetected  = true;
 				}
 
