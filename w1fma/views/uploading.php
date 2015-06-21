@@ -37,15 +37,34 @@
 				$errorTitleMessage = $lang['titleErrorMessage'];
 				$errorDetected  = true;
 		}else{
+
+				if (isValid(trim($_POST['titleOfImage']))) {
+					$clean['titleOfImage'] = trim($_POST['titleOfImage']);
+				} 
+				else {
+					$errorTitleMessage = "Title can contain only letters and numbers. Not any html elements";
+					$errorDetected  = true;
+				}
+
 				$clean['titleOfImage'] = trim($_POST['titleOfImage']);
 		}
+
 		// check if summary of the image is entered
 		if(empty($_POST['summaryOfImage'])){
 				$errorSummaryMessage = $lang['summaryErrorMessage'];
 				$errorDetected  = true;
 		}
 			else{
-				$clean['summaryOfImage'] = trim($_POST['summaryOfImage']);
+
+				if (isValid(trim($_POST['summaryOfImage']))) {
+					$clean['summaryOfImage'] = trim($_POST['summaryOfImage']);
+				} 
+				else {
+					$errorTitleMessage = "Title can contain only letters and numbers. Not any html elements";
+					$errorDetected  = true;
+				}
+
+				
 		}
 		// check if any file is uploaded into form 
 		if (is_uploaded_file($_FILES['userfile']['tmp_name']) && $_FILES['userfile']['error'] === UPLOAD_ERR_OK) {
