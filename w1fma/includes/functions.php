@@ -173,4 +173,26 @@
 			$tplBack = str_replace('[+goBackPage+]',htmlentities($goBack),$tplBack);
 		return $tplBack;
 	}
+
+	function isValid($myString){
+		$withoutWhiteSpace = str_replace(" ", "", $myString);
+
+		if(strlen($myString) != strlen(strip_tags($myString))) {
+	    	return false; 
+		}
+
+		if(is_numeric($withoutWhiteSpace)){
+			return true;
+		} elseif (ctype_alpha($withoutWhiteSpace)) {
+			return true;
+		}elseif( preg_match('/[A-Za-z]/i', $withoutWhiteSpace)) { 
+			return true;
+		} elseif (preg_match('/[a-z]+[0-9]+/' , $withoutWhiteSpace)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 ?>
