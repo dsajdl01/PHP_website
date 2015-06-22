@@ -160,6 +160,7 @@
 			}
 			
 	}
+
 	/*
 	* fillBackBarNavigation() function fill up backBarTemplatehtml file place holders with values
 	*
@@ -174,13 +175,17 @@
 		return $tplBack;
 	}
 
+	/*
+	* isValid() function check if text string do not contain html elements and some signs characters 
+	*
+	* @param string $myString that represent title or summary text.
+	* @return true if string do not contain and html characters or true if contain 
+	*/
 	function isValid($myString){
 		$withoutWhiteSpace = str_replace(" ", "", $myString);
-
 		if(strlen($myString) != strlen(strip_tags($myString))) {
 	    	return false; 
 		}
-
 		if(is_numeric($withoutWhiteSpace)){
 			return true;
 		} elseif (ctype_alpha($withoutWhiteSpace)) {
