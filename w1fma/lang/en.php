@@ -57,6 +57,8 @@
 	$lang['notWriteableFile'] = 'Sorry, either Thumbs or Thumbs_small files are not writeable. Please change the permission of those two files to writeable: 777.';
 	$lang['fileDoNOTExist'] = 'Sorry, either Thumbs or Thumbs_small files do not exist. Please create files and change a permission to writeable 777';
 	$lang['uploadedFailMessage'] = 'To upload image has failed.';
+	$lang['invalidTextSummary'] = "Summary text must contain letters and numbers and NOT any html elements";
+	$lang['invalidImageTitle'] = "Title can contain only letters and numbers. Not any html elements";
 	
 	$lang['noFileEnteredMessage'] = 'You have not entered image file. Please upload the file!';
 	/**
